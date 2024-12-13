@@ -39,3 +39,14 @@ resource "azurerm_subnet" "subnet-3" {
   virtual_network_name = azurerm_virtual_network.name.name
   address_prefixes     = ["10.0.3.0/24"]
 }
+
+resource "azurerm_public_ip" "public_ip" {
+  name                = "demo_public_ip"
+  resource_group_name = "pradeep"
+  location            = azurerm_virtual_network.name.location
+  allocation_method   = "Dynamic"
+
+  tags = {
+    environment = "Production"
+  }
+}
