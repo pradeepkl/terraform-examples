@@ -35,4 +35,16 @@ resource "azurerm_subnet" "subnet-1" {
   virtual_network_name = azurerm_virtual_network.shared_vnet.name
   address_prefixes     = ["10.0.1.0/24"]
 }
+resource "azurerm_subnet" "subnet-srinivas" {
+  name                 = "subnet-srinivas"
+  resource_group_name  = "azure-devops"
+  virtual_network_name = azurerm_virtual_network.shared_vnet.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+resource "azurerm_subnet" "saurabh-sn" {
+  name                 = "saurabh-sn"
+  resource_group_name  = "azure-devops"
+  virtual_network_name = azurerm_virtual_network.shared_vnet.name
+  address_prefixes     = ["10.0.2.0/24"]
+}
 
