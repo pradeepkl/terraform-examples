@@ -14,17 +14,18 @@ provider "azurerm" {
 }
 
 # make use of the exisiting resource group
-resource "azurerm_virtual_network" "name" {
-  name = "test-vnet"
+resource "azurerm_virtual_network" "shared_vnet" {
+  name = "shared_vnet"
   address_space = ["10.0.0.0/16"]
   location = "southindia"
-  resource_group_name = "pradeep"
+  resource_group_name = "azure-devops"
 }
 
-
-resource "azurerm_subnet" "subnet-1" {
-  name                 = "subnet-1"
-  resource_group_name  = "pradeep"
-  virtual_network_name = azurerm_virtual_network.name.name
-  address_prefixes     = ["10.0.1.0/24"]
+output "vnet_id" {
+  value = azurerm_virtual_network.shared_vnet.id
 }
+
+output "vnet_name" {
+  value = azurerm_virtual_network.shared_vnet.name
+}
+
