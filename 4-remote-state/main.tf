@@ -48,3 +48,10 @@ resource "azurerm_subnet" "saurabh-sn" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+resource "azurerm_subnet" "pradeep-sn" {
+  name                 = "pradeep-sn"
+  resource_group_name  = "azure-devops"
+  virtual_network_name = azurerm_virtual_network.shared_vnet.name
+  address_prefixes     = ["10.0.3.0/24"]
+}
+
