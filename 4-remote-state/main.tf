@@ -29,3 +29,10 @@ output "vnet_name" {
   value = azurerm_virtual_network.shared_vnet.name
 }
 
+resource "azurerm_subnet" "subnet-1" {
+  name                 = "subnet-1"
+  resource_group_name  = "azure-devops"
+  virtual_network_name = azurerm_virtual_network.name.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+
